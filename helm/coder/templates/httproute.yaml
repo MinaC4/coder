@@ -25,6 +25,19 @@ spec:
     {{- toYaml . | nindent 4 }}
   {{- end }}
   rules:
+    {{- with .Values.coder.httproute.templateBuilderTimeout }}
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /api/v2/templatebuilder/compose/template
+      timeouts:
+        request: {{ . | quote }}
+        backendRequest: {{ . | quote }}
+      backendRefs:
+        - name: coder
+          # gateway api does not support named ports
+          port: 80
+    {{- end }}
     - backendRefs:
         - name: coder
           # gateway api does not support named ports

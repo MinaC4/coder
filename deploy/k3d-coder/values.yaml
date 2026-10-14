@@ -40,3 +40,4 @@ coder:
         sectionName: http
     host: coder.192.168.1.3.nip.io
     wildcardHost: "*.coder.192.168.1.3.nip.io"
+    templateBuilderTimeout: 180s

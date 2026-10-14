@@ -532,6 +532,10 @@ coder:
     # applications over subdomains.
     # Be sure to also set CODER_WILDCARD_ACCESS_URL within coder.env[]
     wildcardHost: ""
+    # coder.httproute.templateBuilderTimeout -- Optional timeout for template
+    # builder imports, which may take longer than a Gateway's default timeout.
+    # Set to a duration supported by Gateway API, such as 180s.
+    templateBuilderTimeout: ""
     # coder.httproute.annotations -- The HTTPRoute annotations.
     annotations: {}
     # coder.httproute.httpsRedirect -- Create an HTTPRoute object to request redirect to https

@@ -24,6 +24,11 @@ That first user becomes the deployment owner. The chart disables the default
 GitHub OAuth provider and configures no model provider or local AI service.
 AI features remain available to configure later with an external provider.
 
+When creating a template for this deployment, choose the Kubernetes base
+template. The Docker Containers base requires access to a Docker Engine, which
+this Kubernetes provisioner does not provide. The template builder route allows
+up to three minutes for imports that fetch Terraform modules or providers.
+
 The existing Gateway serves Coder over HTTP on port `18080`; workspace app
 subdomains use the same port. Keep this address on a trusted private LAN. This
 k3d cluster has no public ingress or internet-facing DNS configuration.
