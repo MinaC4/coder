@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: coder-workspaces
+  labels:
+    app.kubernetes.io/part-of: coder
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: coder-workspaces
+  namespace: coder-workspaces
+spec:
+  hard:
+    pods: "12"
+    requests.cpu: "4"
+    requests.memory: 8Gi
+    limits.cpu: "8"
+    limits.memory: 8Gi
+    requests.storage: 20Gi
